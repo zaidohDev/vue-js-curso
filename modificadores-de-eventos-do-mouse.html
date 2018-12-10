@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+    <button v-on:click.left='onClick'>Botão esquerdo</button><br>
+    <button v-on:click.middle='onClick'>Botão medio</button><br>
+    <button v-on:click.right='onClick'>Botão direito</button>    
+    <button v-on:click.right.prevent='onClick'>Botão direito s/ menu de context</button>    
+  </div>
+  
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        onClick: function(e){
+          console.log(`Botão ${e.button} pressionado`)
+        }
+      }
+       
+    })
+  </script>
+</body>
+</html>

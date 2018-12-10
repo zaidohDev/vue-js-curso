@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>computed vs methods</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+<body>
+  <div id="app">
+   <p >Nome original {{curso}} </p> <br>
+   <p >Nome invertido (computed) {{cursoInvertidoComputed}} </p> <br>
+   <p >Nome invertido (metodo) {{cursoInvertidoMethod()}} </p> <br>
+   <p >Autor: {{nomeDoAutorInteiro ? 'Daniel Ferreira de Almeida':'Daniel'}} </p> <br>
+   <button @click='nomeDoAutorInteiro = !nomeDoAutorInteiro'>Alterar nome</button>
+   <input @keyup.enter='alterarNomeDoCurso'>
+  </div>
+  
+  
+ 
+ <script>
+    new Vue({
+      el: '#app',
+      data: {
+        curso: 'Curso de VueJs',
+        nomeDoAutorInteiro: false
+      }, 
+      computed:{
+        cursoInvertidoComputed: function(){
+          console.log('computed')
+          return this.curso.split('').reverse().join('')
+        }
+      },
+      methods:{
+        alterarNomeDoCurso: function(e){
+          this.curso = e.target.value
+        },
+        cursoInvertidoMethod: function(){
+          console.log('methods')
+          return this.curso.split('').reverse().join('')
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+   <p >Eventos de Click</p>
+   <button v-on:click='incrementar'>Click +</button>
+   <button v-on:click='decrementar'>Click -</button>
+   <p>Botão clicado {{cliques}} vezes</p>
+  </div>
+  
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        cliques: 0
+      },
+      methods: {
+        incrementar: function(){
+          this.cliques++
+        },
+        decrementar: function(){
+          this.cliques--
+        },
+
+      }   
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+   <p >Eventos de Input</p>
+   <input v-on:blur='showName("Meu nome é: ", $event)'>
+   <p>{{name}}</p>
+  </div>
+  
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: ''
+       
+      },
+      methods: {
+        showName: function(txt, e){
+          console.log(e)
+          this.name = txt + event.target.value
+        }
+      }   
+    })
+  </script>
+</body>
+</html>

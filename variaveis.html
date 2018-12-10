@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+   <p>{{msg}}</p>
+   <p>Meu nome é: {{nome}} | {{ nomeInstrutor()}}</p>
+   <input v-on:input='altName'>
+  </div>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        msg: 'ola',
+        nome: '',
+        instrutor: 'Daniel'
+      },
+      methods: {
+        altName: function(nome){
+          this.nome = nome.target.value
+        },
+        nomeInstrutor: function(){
+          return this.instrutor
+        }
+      }
+    })
+  </script>
+</body>
+</html>

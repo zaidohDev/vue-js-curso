@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+   <p>Curso: {{curso}} </p>
+   <p>Instrutor: <span v-text='instrutor'></span></p>
+   <a :href="docs">vuejs</a>
+  </div>
+  
+  
+  
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        curso: 'VueJs',
+        docs: 'https://br.vuejs.org',
+        instrutor: 'Daniel'
+      },   
+    })
+  </script>
+</body>
+</html>

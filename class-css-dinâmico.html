@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>class-css-dinâmico</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <style>
+    .caixa{
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      margin: 60px;
+      background-color: red;
+    }
+    .coral{
+      background-color: blueviolet;
+    }
+    .verde{
+      background-color: green;
+    }
+    .azul{
+      background-color: blue;
+    }
+    .circulo{
+      border-radius: 100px;
+    }
+    .vermelho{
+      background-color: red;
+    }
+    .core { 
+    transform: rotate(-45deg); 
+    position: relative;
+}
+
+.core:before,
+.core:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 200px;
+    position: absolute;
+    width: 200px;
+}
+
+.core:before {
+    top: -100px;
+}
+
+.core:after {
+    left: 100px;
+}
+  </style>
+</head>
+<body>
+  <div id="app">
+   <div class="caixa" 
+    :class='{coral: aplicarClasse }' 
+    @click='aplicarClasse=!aplicarClasse'> 
+  </div>
+
+  <div class="caixa" 
+    :class='nameClass'>
+  </div>
+
+  <input v-model='nameClass' placeholder="digite core, coral, verde, azul, ou circulo" >
+  </div>
+
+ <script>
+    new Vue({
+      el: '#app',
+      data: {
+        aplicarClasse: false,
+        nameClass: ''
+      }
+    })
+  </script>
+</body>
+</html>

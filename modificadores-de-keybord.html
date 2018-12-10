@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+    <input v-on:keyup.enter='onKey' placeholder="Qualquer tecla">
+    <p v-text='tecla'></p>
+    
+  </div>
+  
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+        tecla: ''
+       
+      },
+      methods: {
+        onKey: function(e){
+          console.log(e)
+          this.tecla = 'Tecla: '+ e.key +'  .keyCod: '+ e.keyCode 
+        }  
+      }  
+    })
+  </script>
+</body>
+</html>

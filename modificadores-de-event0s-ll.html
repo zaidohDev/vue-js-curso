@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  
+</head>
+<body>
+  <div id="app">
+   <p v-on:click='onClick("p", $event)'>
+     Curso VueJs
+    <button v-on:click.stop='onClick("button", $event)'>Clique</button>
+    </p>
+    <form>
+      <input type="text">
+      <button type="submit" v-on:click='onSubmit'>Submit s/ modificador</button>
+      <button type="submit" v-on:click.prevent='onSubmit'>Submit c/ modificador</button>
+    </form>
+  </div>
+  
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        onClick: function( elementoAlvo, e){
+          //event.stopPropagation()
+            console.log(e.type, ':' , elementoAlvo)
+        },
+        onSubmit: function(event){
+          //event.stopPropagation()
+            console.log(`formulário enviado`)
+        }
+      }   
+    })
+  </script>
+</body>
+</html>

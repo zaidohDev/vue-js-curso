@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>data-bind</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+<body>
+  <div id="app">
+   <p >Nome: {{name}} </p> <br>
+   <input v-model='name'>
+   <!-- <input :value='name' @input='name=$event.target.value'> -->
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'Daniel',
+      },
+    })
+  </script>
+</body>
+</html>
