@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>interando-intervalos-numericos</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+    <ul>
+      <h1>Products</h1>
+      <li v-for='(value, index) in 30'>
+         <span>{{index}}: {{value}}</span>
+      </li>
+    </ul>
+
+  </div>
+ <script>
+    new Vue({
+      el: '#app'
+      
+    })
+  </script>
+</body>
+</html>

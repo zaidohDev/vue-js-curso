@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>v-else-if</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+    <p v-if='nota=="A"'>Parabens, sua nota: 'A'</p>
+    <p v-else-if='nota=="B"'>sua nota 'B', dar pra melhorar!</p>
+    <p v-else-if='nota=="C"'>Você precisa melhorar, nota: 'C'</p>
+    <p v-else>Nota não publicada</p> 
+    <input v-model='nota' placeholder="nota" >
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data: {
+        nota: ''
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>array-class-css-dinâmico</title>
+  <title>Rastreando-id-dos-el-no-v-for-com-key</title>
   <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
-  <style>
-    #app div{
-      display: inline-block;
-      margin: 10px;
-      background-color: red;
-    }
-    </style>
 </head>
-<body>
-  <div id="app">
-   <div style="width: 200px; height:2px"
-   :style='{backgroundColor: cor, height: tamanho + "px", borderRadius: circulo + "px"}'> 
-  </div>
-<div :style="estiloCss"></div>
-<div :style="[estiloCss, {border: '2px solid green'}]"></div><br>
-  <input v-model='cor' placeholder="cor" >
-  <input v-model.number='tamanho' placeholder="tamanho" >
-  <input v-model.number='circulo' placeholder="circulo" >
-  </div>
 
+<body>
+  <div id="app" >
+    <button @click='products.reverse()' >Inverte lista</button>
+    <button @click='addProduct'>Add Product</button>
+    <ul>
+      <h1>Products</h1>
+      <li v-for='product in products' :key='product.id'>
+         <span>{{product.name}}</span>
+      </li>
+    </ul>
+    
+
+  </div>
  <script>
     new Vue({
       el: '#app',
-      data: {
-        cor: '',
-        tamanho: 200,
-        circulo: 100
+      data:{
+        products: [
+          {id: 1, name: 'Monitor'},
+          {id: 2, name: 'Teclado'},
+          {id: 3, name: 'Mouse'},
+          {id: 4, name: 'Hd'},
+        ]
       },
-
-      computed: {
-        estiloCss: function(){
-          return {
-            backgroundColor: this.cor,
-            height: (this.tamanho + 10) + 'px',
-            width: '100px',
-            borderRadius: (this.circulo +10) + 'px'
-          }
+      methods:{
+        addProduct: function(){
+          let id = this.products.length + 1
+          this.products.push({id: id, name: 'Product' + id})
         }
       }
       
@@ -47,3 +40,4 @@
   </script>
 </body>
 </html>
+

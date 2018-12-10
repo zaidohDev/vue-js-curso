@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>render-de-grupos-de-el</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+    <div>
+      <button @click='show=!show'>Alterar</button>
+    </div>
+   <ul>
+     <li>Item 0</li>
+     <li>Item 1</li>
+     <template v-if='show'>
+       <li>Item 2</li>
+       <li>Item 3</li>
+     </template>  
+   </ul>
+   
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: true
+      }
+    })
+  </script>
+</body>
+</html>

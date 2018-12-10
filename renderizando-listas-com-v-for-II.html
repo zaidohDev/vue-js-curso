@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>renderizando-listas-com-v-for-II</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+    <ul>
+      <h1>Products</h1>
+      <li v-for='(product, index) in products'>
+         <span>{{index}} - {{product}}</span>
+      </li>
+    </ul>
+
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data: {
+        products: [
+          'Tv',
+          'Pc',
+          'Mouse'
+        ]
+      }
+    })
+  </script>
+</body>
+</html>
