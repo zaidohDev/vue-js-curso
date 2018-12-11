@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>detectando-mudanças-de-arrays</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+    <button @click='products = products.slice(0, 4)'>Substituir</button>
+    <button @click='subsProduct'>Substituir</button>
+    <button @click='addProduct'>Add Product</button>
+    <ul>
+      <h1>Products</h1>
+      <li v-for='product in products' :key='product.id'>
+         <span>{{product.name}}</span>
+      </li>
+    </ul>
+    
+
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data:{
+        products: [
+          {id: 1, name: 'Monitor'},
+          {id: 2, name: 'Teclado'},
+          {id: 3, name: 'Mouse'},
+          {id: 4, name: 'Hd'}
+        ]
+      },
+      methods: {
+        addProduct: function (event) { 
+          let id = this.products.length + 1
+          this.products.push({id: id, name:'Product'+id})
+        },
+        subsProduct: function(event){
+          let length = this.products.length + 1
+          let index = Math.round(length/2)
+          let newProduct = {id: (length+1), name: 'Product' + (length + 1)}  
+          
+          //this.products[index] = newProduct  // não reativo
+          //Vue.set(this.products, index, newProduct) // reativo do vue
+          // this.$set(this.products, index,newProduct)// reativo do vue
+          this.products.splice(index, 1, newProduct) // nativo do js
+
+        }
+      }
+      
+    })
+  </script>
+</body>
+</html>
+

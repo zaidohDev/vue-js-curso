@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>v-for-junto-com-v-if-e-filter-de-arrays</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+    <button @click='' >Inverte lista</button>
+    <button @click=''>Add Task</button>
+    <ul v-if='taksIncomplet.length'>
+      <h1>Tasks</h1>
+      <!-- <li v-for='task in tasks' :key='task.id' v-if='!task.complet'>
+         <span>{{ task.id }} - {{ task.title }}</span>
+      </li> -->
+      <li v-for='task in taksIncomplet' :key='task.id' >
+        <span>{{ task.id }} - {{ task.title }}</span>
+     </li>
+    </ul>
+    <p v-else>Não foram encontradas tarefas</p>
+    
+
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data:{
+        tasks: [
+          {id: 1, title: 'Aprenda js', complet:true},
+          {id: 2, title: 'Aprenda vue', complet:true},
+          {id: 3, title: 'Aprenda vuex', complet:true},
+          {id: 4, title: 'Aprenda vuerouter', complet:true},
+        ]
+      },
+      computed: {
+        taksIncomplet: function(){
+          return this.tasks.filter(function(task){
+            return !task.complet
+          })
+        }
+      }
+      
+      
+    })
+  </script>
+</body>
+</html>
+

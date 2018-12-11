@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>detectando-mudanças-no-obj</title>
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+</head>
+
+<body>
+  <div id="app" >
+      <button @click='addProperty'>AddProp</button>
+      <button @click='SubObjeto'>SubObj</button>
+      <h1>Obj - Product</h1>
+      <li v-for='(value, key) in product'>
+         <span>{{value}} - {{key}}</span>
+      </li>
+    </ul>
+    
+
+  </div>
+ <script>
+    new Vue({
+      el: '#app',
+      data:{
+        product: {id: 1, name: 'Monitor', marca: 'Dell'},
+        user:{nome:'', idade:0}  
+      },
+      methods: {
+        addProperty: function(e){
+          // this.product.price = 100 // não reativo
+          // Vue.set(this.product, 'price', 100) // reativo vue
+          this.$set(this.product, 'price', 100) // instance vue
+        },
+        SubObjeto: function(e){
+          // Object.assign(this.product, {price:50, cor: 'black', }) // não reativo
+         this.product = Object.assign({}, this.product, {price:50, cor: 'black' })
+        }
+      }       
+    })
+  </script>
+</body>
+</html>
+

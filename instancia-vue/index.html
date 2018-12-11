@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A instância vue</title>
+  
+</head>
+<body>
+  <div id="app1">
+    <h3 v-if='showMsg'>Título alterado!</h3>
+    <p>Titulo: {{title}}</p>
+    <p>Titulo lower case: {{titleLowerCase}}</p>
+    <input v-model='newTitle'>
+    <button @click='altTitle'>Altera título</button><br>   
+  </div><br><br><hr>
+
+  <div id="app2">
+    <h2>Mensagem: {{msg}}</h2>
+    <button @click='altTitle'>Alterar titulo</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.5.18/dist/vue.min"></script>
+  <script>
+    let vm1 = new Vue({
+      el: '#app1',
+      data: {
+        title: 'A Instância Vue',
+        newTitle: '',
+        showMsg: false
+      },
+      methods: {
+        altTitle: function(){
+          this.title = this.newTitle
+          this.newTitle=''
+        }
+      },
+      computed: {
+        titleLowerCase: function(){
+          return this.title.toLowerCase().split(' ').join('-')
+        }
+      },
+      watch:{
+        title: function(newTitle, oldTitle){
+          console.log(`Título Alterado: de ${oldTitle} para ${newTitle} `)
+          this.showMsg =true
+          setTimeout(()=>{
+            this.showMsg =false
+          }, 3000)
+        }
+      }
+       
+    })
+
+    let vm2 = new Vue({
+      el:'#app2',
+      data:{
+        msg: 'Segunda instância vue'
+      },
+      methods: {
+        altTitle: function(e){
+         vm1.title = 'titulo alterado por meio de outra instancia vue'
+          
+        }
+      }
+    })
+  </script>
+</body>
+</html>
